@@ -27,7 +27,7 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 
 candidateAnswer=input.question("Who was the first American woman in space? ");
-
+console.log(String(candidateAnswer));
 return candidateAnswer;
 }
 
@@ -56,7 +56,7 @@ function runProgram()
     // TODO 1.1c: Greet candidate using their name //
    console.log("Rupali welcome into the coding world ");
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  gradeQuiz(this.candidateAnswer);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
