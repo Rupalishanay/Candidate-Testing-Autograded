@@ -1,3 +1,4 @@
+
 const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
@@ -30,29 +31,40 @@ function askQuestion() {
   for (let i = 0; i < questions.length; i++) {
      candidateAnswers[i] = input.question(questions[i] + "\n");
      
+  console.log("Your Answer: " + candidateAnswers[i]+ "\n");
+  console.log("Correct Answers: " + correctAnswers[i] + "\n");
   }
 
-return candidateAnswer;
+
+return candidateAnswers;
 
 }
 
-function gradeQuiz(candidateAnswer) {
+function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(String(candidateAnswer));
+   let count=0;
+    for(let i = 0 ; i < correctAnswers.length;i++){
+      
+       if(candidateAnswers[i]===correctAnswers[i])
+   {
+    count++;   
+   }
+   console.log(count);
+  }   
   
-    
-   if(candidateAnswer.toLowerCase===correctAnswer.toLowerCase())
-  {
-     console.log("your answer is correct ");
+ let grade = (count / questions.length) * 100;
+  console.log(grade);
+  console.log("\n" + "\n" + "\n")
+  console.log(">>> Overall Grade: " + grade + "%(" + count + " of " + correctAnswers.length + "responses correct) <<<")
+  
+  //TODO 3.2 use this variable to calculate the candidates score.
+  if (grade >= 80) {
+    console.log("Congratulations! You passed the quiz.");
+  } else {
+    console.log("Unfortunately, you failed the quiz. Please review your answers.");
   }
- else
- {
-    console.log("answer is wrong");
- }
-  
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
 
   return grade;
 }
@@ -63,7 +75,7 @@ function runProgram()
     // TODO 1.1c: Greet candidate using their name //
     console.log(`Welcome to the coding world,${candidateName}!`);
   askQuestion();
-  gradeQuiz(this.candidateAnswer);
+  gradeQuiz(candidateAnswers);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
@@ -80,3 +92,60 @@ candidateAnswers: candidateAnswers,
   gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+  
+  
